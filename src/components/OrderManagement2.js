@@ -359,7 +359,7 @@ const OrderManagement = () => {
             >
               <Select
                 defaultValue="all"
-                // style={{ width: 150 }}
+                style={{ width: 150 }}
                 onChange={handleSelectChange}
               >
                 <Option value="all">Tất cả</Option>

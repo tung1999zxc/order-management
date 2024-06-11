@@ -33,7 +33,7 @@ function App() {
           <Content style={{ margin: "16px" }}>
             <Routes>
               <Route path="/1" element={<OrderManagement />} />
-              <Route path="/2" element={<OrderManagement2 />} />
+              <Route path="/" element={<OrderManagement2 />} />
               <Route path="/3" element={<TestAnt />} />
               <Route path="/child/:id" element={<OrderDetail />} />
             </Routes>
