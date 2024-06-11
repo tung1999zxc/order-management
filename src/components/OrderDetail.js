@@ -141,7 +141,7 @@ const OrderDetail = () => {
     <div className="order-detail">
       <Row>
         <Col>
-          <Link to="/2" className="nav-link">
+          <Link to="/" className="nav-link">
             TRỞ LẠI
           </Link>
         </Col>
