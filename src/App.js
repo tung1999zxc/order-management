@@ -1,24 +1,47 @@
-import logo from './logo.svg';
-import './App.css';
+// src/App.js
+import React from "react";
+import { Layout, Menu } from "antd";
+import { BrowserRouter as Router, Route, Routes, Link } from "react-router-dom";
+import OrderDetail from "./components/OrderDetail.js";
+import { UnorderedListOutlined, ShoppingCartOutlined } from "@ant-design/icons";
+import OrderManagement from "./components/OrderManagement";
+import OrderManagement2 from "./components/OrderManagement2";
+import TestAnt from "./components/TestAnt.js";
+
+const { Header, Content, Footer, Sider } = Layout;
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Router>
+      <Layout style={{ minHeight: "100vh" }}>
+        {/* <Sider collapsible>
+          <div className="logo" />
+          <Menu theme="dark" defaultSelectedKeys={["1"]} mode="inline">
+            <Menu.Item key="1" icon={<UnorderedListOutlined />}>
+              <Link to="1">Orders</Link>
+            </Menu.Item>
+            <Menu.Item key="2" icon={<ShoppingCartOutlined />}>
+              <Link to="/2">OrderDetail</Link>
+            </Menu.Item>
+          </Menu>
+        </Sider> */}
+        <Layout className="site-layout">
+          <Header
+            className="site-layout-background"
+            style={{ padding: 0, background: "#ee4d2d" }}
+          />
+          <Content style={{ margin: "16px" }}>
+            <Routes>
+              <Route path="/1" element={<OrderManagement />} />
+              <Route path="/2" element={<OrderManagement2 />} />
+              <Route path="/3" element={<TestAnt />} />
+              <Route path="/child/:id" element={<OrderDetail />} />
+            </Routes>
+          </Content>
+          <Footer style={{ textAlign: "center" }}></Footer>
+        </Layout>
+      </Layout>
+    </Router>
   );
 }
 

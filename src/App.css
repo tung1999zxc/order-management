@@ -36,3 +36,23 @@
     transform: rotate(360deg);
   }
 }
+
+.no-hover:hover {
+  background-color: initial !important;
+}
+.my-custom-column {
+  font-size: 18px;
+}
+.custom-order-amount {
+  font-size: 30px;
+}
+
+.nav-link {
+  color: blue; /* Màu chữ */
+  text-decoration: none; /* Loại bỏ gạch chân */
+  margin-right: 10px; /* Khoảng cách giữa các liên kết */
+}
+
+.nav-link:hover {
+  color: red; /* Màu chữ khi hover */
+}
