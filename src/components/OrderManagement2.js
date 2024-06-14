@@ -1,6 +1,7 @@
 // src/components/OrderManagement.js
 import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
+import { ShoppingCartOutlined } from "@ant-design/icons";
 import {
   Tabs,
   Table,
@@ -335,10 +336,35 @@ const OrderManagement = () => {
   return (
     <div>
       <h1>Đơn mua</h1>
+      <div
+        style={{
+          position: "absolute ",
+          right: "200px",
+          top: "14px",
+        }}
+      >
+        <Link to="/cart">
+          <Badge count={4}>
+            <ShoppingCartOutlined
+              style={{
+                fontSize: "35px",
+                color: "#08c",
+              }}
+            />
+          </Badge>
+        </Link>
+      </div>
 
       <Tabs defaultActiveKey="all">
         <TabPane
-          tab={<Badge count={filteredOrders.length}>Tất cả</Badge>}
+          tab={
+            <Badge
+              count={filteredOrders.length}
+              style={{ position: "relative", left: "-10px", top: "8px" }}
+            >
+              Tất cả
+            </Badge>
+          }
           key="all"
         >
           <Row>
@@ -391,26 +417,54 @@ const OrderManagement = () => {
           {renderTable(filteredOrders)}
         </TabPane>
         <TabPane
-          tab={<Badge count={ftPending.length}>Chờ xác nhận</Badge>}
+          tab={
+            <Badge
+              count={ftPending.length}
+              style={{ position: "relative", left: "-10px", top: "8px" }}
+            >
+              Chờ xác nhận
+            </Badge>
+          }
           key="Pending"
         >
           {renderTable(ftPending)}
         </TabPane>
 
         <TabPane
-          tab={<Badge count={ftShipped.length}>Chờ giao hàng</Badge>}
+          tab={
+            <Badge
+              count={ftShipped.length}
+              style={{ position: "relative", left: "-10px", top: "8px" }}
+            >
+              <span>Chờ giao hàng</span>
+            </Badge>
+          }
           key="Shipped"
         >
           {renderTable(ftShipped)}
         </TabPane>
         <TabPane
-          tab={<Badge count={ftCompleted.length}>Đã giao</Badge>}
+          tab={
+            <Badge
+              count={ftShipped.length}
+              style={{ position: "relative", left: "-10px", top: "8px" }}
+            >
+              Đã giao
+            </Badge>
+          }
           key="Completed"
         >
           {renderTable(ftCompleted)}
         </TabPane>
         <TabPane
-          tab={<Badge count={ftCanceled.length}>Đã huỷ</Badge>}
+          tab={
+            <Badge
+              count={ftCanceled.length}
+              style={{ position: "relative", left: "-10px", top: "8px" }}
+            >
+              <span>Đã huỷ</span>
+            </Badge>
+          }
           key="Canceled"
         >
           {renderTable(ftCanceled)}

@@ -184,7 +184,7 @@ const OrderDetail = () => {
                 margin: "40px 10px 10px 10px",
                 padding: "5px 16px",
                 width: "200px",
-                color: "#ee4d2d",
+                // color: "#ee4d2d",
               }}
             >
               Đánh giá
