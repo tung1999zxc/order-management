@@ -686,6 +686,7 @@ const Cart = () => {
                   visible={visibleModal}
                   onOk={() => setVisibleModal(false)}
                   onCancel={() => setVisibleModal(false)}
+                  footer={[]}
                 >
                   <div
                     style={{
