@@ -132,19 +132,19 @@ const Cart = () => {
     setTotal(newTotal);
 
     // Tính toán giá trị giảm giá (nếu có)
-    let appliedDiscount = 0;
-    if (selectedCoupon) {
-      const coupon = discountData.find((c) => c.id === selectedCoupon);
-      if (coupon && coupon.type === "percent") {
-        appliedDiscount = (coupon.discount / 100) * newTotal;
-      } else if (coupon && coupon.type === "fixed") {
-        appliedDiscount = coupon.discount;
-      }
-    }
+    // let appliedDiscount = 0;
+    // if (selectedCoupon) {
+    //   const coupon = discountData.find((c) => c.id === selectedCoupon);
+    //   if (coupon && coupon.type === "percent") {
+    //     appliedDiscount = (coupon.discount / 100) * newTotal;
+    //   } else if (coupon && coupon.type === "fixed") {
+    //     appliedDiscount = coupon.discount;
+    //   }
+    // }
 
     // Nếu hàm được truyền `discountValue`, sử dụng nó thay vì `appliedDiscount`
-    const discountToApply = (discountValue / 100) * newTotal || appliedDiscount;
-
+    // const discountToApply = (discountValue / 100) * newTotal || appliedDiscount;
+    const discountToApply = (discountValue / 100) * newTotal;
     // Giả sử vận chuyển là giao hàng tiêu chuẩn
     let shippingCost = shippingMethods[1].price;
 
@@ -532,6 +532,7 @@ const Cart = () => {
         }
         // Nếu sản phẩm không được chọn, cập nhật trạng thái checked là false
         return { ...item, checked: false };
+        setSelectAllChecked(false);
       }
       // Không thay đổi trạng thái checked cho các sản phẩm không thuộc cửa hàng cần xử lý
       return item;
