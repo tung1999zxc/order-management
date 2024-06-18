@@ -23,6 +23,22 @@
     "store": "Cửa hàng giày NIKE"
   },
   {"shop_name": "Cửa hàng giày NIKE",
+  "key": "5",
+  "id": "PROD004",
+  "name": "Aó polo nam mùa hè",
+  "quantity": 1,
+  "image":  "/aopolo.jfif",
+  "shipping_unit": "Giao hàng tiết kiệm",
+  "price": 80000,
+  "subtotal": 80000,
+  "slColor":"mẫu 1",
+  "slSize":"xl",
+  "color": ["mẫu 1","mẫu trắng","mẫu đen", "vàng"],
+  "size":["m","l","xl","xxl","xxxl"] ,
+  "checked": false,
+  "store": "Cửa hàng giày NIKE"
+},
+  {"shop_name": "Cửa hàng giày NIKE",
     "key": "4",
     "id": "PROD004",
     "name": "Giày thể thao đá bóng",
@@ -38,6 +54,7 @@
     "checked": false,
     "store": "Cửa hàng giày NIKE"
   },
+
   {"shop_name": "Cửa hàng túi sách Ngọc Oanh",
     "key": "2",
     "id": "PROD002",

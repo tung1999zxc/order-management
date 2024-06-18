@@ -1,0 +1,44 @@
+{
+    "shopInfo": {
+      "name": "SPORT FASHION",
+      "followers": 1000,
+      "productsCount": 307,
+      "responseRate": 89,
+      "cancellationRate": 2,
+      "rating": 4.6,
+      "reviewsCount": 6100,
+      "memberSince": 7
+    },
+    "products": [
+      {
+        "id": 1,
+        "name": "Giày đá bóng",
+        "price": "98,000",
+        "image": "giaydabong.jfif",
+        "ratings": 48
+      },
+      {
+        "id": 2,
+        "name": "Giày đá bóng sân cỏ nhân tạo",
+        "price": "20,000",
+        "image": "giay.jfif",
+        "ratings": 13
+      },
+      {
+        "id": 3,
+        "name": "Giày thể thao",
+        "price": "20,000",
+        "image": "giaydabong.jfif",
+        "ratings": 2700
+      },
+      {
+        "id": 4,
+        "name": "Giày đá bóng 100%",
+        "price": "19,600",
+        "image": "giay.jfif",
+        "ratings": 83
+      }
+    
+    ]
+  }
+  

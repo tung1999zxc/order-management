@@ -1,0 +1,38 @@
+{
+    "customer": {
+      "name": "TUNG HOANG",
+      "phone": "+84 368140552",
+      "address": "Số 1, Đường Liên Xã, Thôn Lực Canh, Xã Xuân Canh, Huyện Đông Anh, Hà Nội"
+    },
+    "products": [
+      {
+        "name": "Giày đá bóng, giày đá banh, giày thể thao, đá sân cỏ nhân tạo",
+        "price": "98.000₫",
+        "quantity": 1,
+        "total": "98.000₫",
+        "image": "https://via.placeholder.com/60x60.png?text=Product1",
+        "variant": "Loại: Trắng xanh, 41"
+      },
+      {
+        "name": "Giày đá bóng đá banh sân cỏ nhân tạo đá khâu đế 100%",
+        "price": "99.000₫",
+        "quantity": 1,
+        "total": "99.000₫",
+        "image": "https://via.placeholder.com/60x60.png?text=Product2",
+        "variant": "Loại: Trắng đỏ, 41"
+      }
+    ],
+    "shipping": {
+      "method": "Nhanh",
+      "time": "dự kiến giao hàng vào 20 tháng 6"
+    },
+    "shipping_fee": "23.400₫",
+    "total": "220.400₫",
+    "voucher": "",
+    "xu": "",
+    "payment_method": {
+      "name": "Thanh toán khi nhận hàng",
+      "price": "220.400₫"
+    }
+  }
+  

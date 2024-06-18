@@ -1,0 +1,30 @@
+{
+    "address": {
+      "name": "TUNG HOANG",
+      "phone": "+84 968140562",
+      "address": "Số 1, Đường Liên Xã, Thôn Lực Canh, Xã Xuân Canh, Huyện Đông Anh, Hà Nội"
+    },
+    "products": [
+      {
+        "name": "Giày đá bóng, giày đá banh, giày thể thao, đá sân cỏ nhân tạo",
+        "type": "Trắng xanh, 41",
+        "price": 98000,
+        "quantity": 1,
+        "image": "link_to_image_1"
+      },
+      {
+        "name": "Giày đá bóng, giày đá banh sân cỏ nhân tạo đã khâu đế 100%",
+        "type": "Trắng gót xanh, 40",
+        "price": 99000,
+        "quantity": 1,
+        "image": "link_to_image_2"
+      }
+    ],
+    "shipping": {
+      "method": "Nhanh",
+      "cost": 23400,
+      "arrival": "20 Tháng 6"
+    },
+    "total": 220400
+  }
+  

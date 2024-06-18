@@ -7,7 +7,9 @@ import { UnorderedListOutlined, ShoppingCartOutlined } from "@ant-design/icons";
 import OrderManagement from "./components/OrderManagement";
 import OrderManagement2 from "./components/OrderManagement2";
 import TestAnt from "./components/TestAnt.js";
-import TestAnt2 from "./components/TestAnt2.js";
+import Product from "./components/Product.js";
+import TestAnt3 from "./components/TestAnt3.js";
+import OderBuy from "./components/OderBuy.js";
 
 const { Header, Content, Footer, Sider } = Layout;
 
@@ -36,7 +38,10 @@ function App() {
               <Route path="/1" element={<OrderManagement />} />
               <Route path="/" element={<OrderManagement2 />} />
               <Route path="/cart" element={<TestAnt />} />
-              <Route path="/4" element={<TestAnt2 />} />
+              <Route path="/product" element={<Product />} />
+              <Route path="/oderBuy" element={<OderBuy />} />
+
+              <Route path="/shop" element={<TestAnt3 />} />
               <Route path="/child/:id" element={<OrderDetail />} />
             </Routes>
           </Content>

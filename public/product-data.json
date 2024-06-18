@@ -1,0 +1,19 @@
+{
+    "name": "Giày đá bóng, giày đá banh, giày thể thao, đá sân cỏ nhân tạo đá khâu đế 100%",
+    "price": "98.000₫",
+    "rating": 4.9,
+    "reviews": 22,
+    "sold": 49,
+    "colors": ["Trắng xanh", "Đỏ trắng"],
+    "sizes": ["38", "39", "40", "41", "42", "43"],
+    "quantity": 1136,
+    "images": [
+      "/giay.jfif",
+      "giay.jfif",
+      "giay.jfif",
+      "giay.jfif",
+      "giay.jfif",
+      "giay.jfif"
+    ]
+  }
+  

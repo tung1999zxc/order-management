@@ -39,6 +39,9 @@ body {
   }
 }
 
+.hand-cursor {
+  cursor: pointer; /* Con
+
 .no-hover:hover {
   background-color: initial !important;
 }
@@ -57,4 +60,212 @@ body {
 
 .nav-link:hover {
   color: red; /* Màu chữ khi hover */
+}
+
+.layout {
+  min-height: 100vh;
+}
+
+.logo {
+  width: 120px;
+  height: 31px;
+  color: white;
+  font-size: 24px;
+  font-weight: bold;
+  margin: 16px 24px 16px 0;
+  float: left;
+}
+
+.site-layout-content {
+  padding: 24px;
+  background: #fff;
+  margin: 24px 0;
+}
+
+.thumbnails {
+  display: flex;
+  margin-top: 10px;
+}
+
+.thumbnails img {
+  margin-right: 10px;
+}
+
+.price {
+  color: red;
+  font-size: 24px;
+}
+
+.product-options {
+  margin-top: 20px;
+}
+
+.option-group {
+  margin-bottom: 10px;
+}
+
+.action-buttons {
+  margin-top: 20px;
+}
+
+.layout {
+  min-height: 100vh;
+}
+
+.logo {
+  width: 120px;
+  height: 31px;
+  color: white;
+  font-size: 24px;
+  font-weight: bold;
+  margin: 16px 24px 16px 0;
+  float: left;
+}
+
+.site-layout-content {
+  padding: 24px;
+  background: #fff;
+  margin: 24px 0;
+}
+
+.price {
+  color: red;
+  font-size: 24px;
+}
+
+.product-options {
+  margin-top: 20px;
+}
+
+.option-group {
+  margin-bottom: 10px;
+}
+
+.action-buttons {
+  margin-top: 20px;
+}
+
+.order-details {
+  padding: 24px;
+  background: #fff;
+}
+
+/* src/App.css */
+body {
+  background-color: #f0f2f5;
+}
+
+.layout {
+  min-height: 100vh;
+}
+
+.logo {
+  width: 120px;
+  height: 31px;
+  background: rgba(255, 255, 255, 0.2);
+  margin: 16px 24px 16px 0;
+  float: left;
+}
+
+.site-layout-content {
+  background: #fff;
+  padding: 24px;
+  min-height: 280px;
+  margin-top: 24px;
+}
+
+.ant-card {
+  margin-bottom: 24px;
+}
+
+.ant-card-head-title {
+  font-weight: bold;
+  color: #1890ff;
+}
+
+.ant-list-item-meta-title a {
+  color: #1890ff;
+}
+
+.ant-list-item-meta-description {
+  color: rgba(0, 0, 0, 0.45);
+}
+
+.ant-btn-primary {
+  background-color: #1890ff;
+  border-color: #1890ff;
+}
+
+.ant-select {
+  width: 100%;
+}
+
+.ant-input-textarea-show-count::after {
+  content: "Maximum length exceeded";
+  color: red;
+}
+
+.site-layout-background {
+  background: #fff;
+  padding: 24px;
+}
+
+/* src/App.css */
+body {
+  background-color: #f0f2f5;
+}
+
+.layout {
+  min-height: 100vh;
+}
+
+.logo {
+  width: 120px;
+  height: 31px;
+  background: rgba(255, 255, 255, 0.2);
+  margin: 16px 24px 16px 0;
+  float: left;
+}
+
+.site-layout-content {
+  background: #fff;
+  padding: 24px;
+  min-height: 280px;
+  margin-top: 24px;
+}
+
+.ant-card {
+  margin-bottom: 24px;
+}
+
+.ant-card-head-title {
+  font-weight: bold;
+  color: #1890ff;
+}
+
+.ant-list-item-meta-title a {
+  color: #1890ff;
+}
+
+.ant-list-item-meta-description {
+  color: rgba(0, 0, 0, 0.45);
+}
+
+.ant-btn-primary {
+  background-color: #1890ff;
+  border-color: #1890ff;
+}
+
+.ant-select {
+  width: 100%;
+}
+
+.ant-input-textarea-show-count::after {
+  content: 'Maximum length exceeded';
+  color: red;
+}
+
+.site-layout-background {
+  background: #fff;
+  padding: 24px;
 }
