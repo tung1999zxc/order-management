@@ -3,7 +3,6 @@ import { Link } from "react-router-dom";
 import { Icon } from "@ant-design/icons";
 import { CheckCircleOutlined } from "@ant-design/icons";
 import {
-  message,
   Card,
   Popover,
   Tooltip,
@@ -63,14 +62,12 @@ const Cart = () => {
 
   const [grandTotal, setGrandTotal] = useState(0);
   const [selectAllChecked, setSelectAllChecked] = useState(false);
-  const [maxDiscountAmount, setMaxDiscountAmount] = useState(0);
 
   const discountData = [
     {
       id: 1,
       type: "percent",
       discount: 10,
-      maxDiscountAmount: 150000,
       description: "Giảm 10% tối đa ₫150k",
       expiryDate: "Đã dùng 61%, HSD: 24.06.2024",
     },
@@ -78,7 +75,6 @@ const Cart = () => {
       id: 2,
       type: "percent",
       discount: 20,
-      maxDiscountAmount: 200000,
       description: "Giảm 20% tối đa ₫200k",
       expiryDate: "Đã dùng 99%, Sắp hết hạn: Còn 7 giờ",
     },
@@ -86,7 +82,6 @@ const Cart = () => {
       id: 3,
       type: "percent",
       discount: 15,
-      maxDiscountAmount: 100000,
       description: "Giảm 15% Giảm tối đa ₫100k",
       expiryDate: "Sắp hết hạn: Còn 7 giờ",
     },
@@ -106,36 +101,16 @@ const Cart = () => {
   };
 
   const handleSelectCoupon = (coupon) => {
-    if (cartData.some((item) => item.checked === true)) {
-      if (selectedCoupon === coupon.id) {
-        // Nếu mã giảm giá đang chọn được bấm lại, bỏ chọn nó
-        setSelectedCoupon(null);
-        message.success(`Đã huỷ mã giảm giá thành công! `);
-        setDiscountAmount(0);
-        setMaxDiscountAmount(0);
-        updateTotals(cartData, 0, 0); // Cập nhật lại tổng tiền với giảm giá = 0
-      } else {
-        // Chọn mã giảm giá mới
-        setSelectedCoupon(coupon.id);
-        setMaxDiscountAmount(coupon.maxDiscountAmount);
-        setDiscountAmount(coupon.discount);
-        updateTotals(cartData, coupon.discount, coupon.maxDiscountAmount); // Cập nhật lại tổng tiền với giảm giá mới
-
-        let key = "loading";
-        message.loading({ content: "Đang xử lý...", key, duration: 2 });
-
-        // Giả lập một hoạt động đang diễn ra
-        setTimeout(() => {
-          // Sau khi hoàn thành xử lý, đóng message loading
-          message.success({
-            content: `Đã áp dụng mã giảm giá thành công! Số % giảm giá: ${coupon.discount}% `,
-            key,
-            duration: 2,
-          });
-        }, 100);
-      }
+    if (selectedCoupon === coupon.id) {
+      // Nếu mã giảm giá đang chọn được bấm lại, bỏ chọn nó
+      setSelectedCoupon(null);
+      setDiscountAmount(0);
+      updateTotals(cartData, 0); // Cập nhật lại tổng tiền với giảm giá = 0
     } else {
-      message.warning(`Hãy chọn sản phẩm để chọn mã giảm giá `);
+      // Chọn mã giảm giá mới
+      setSelectedCoupon(coupon.id);
+      setDiscountAmount(coupon.discount);
+      updateTotals(cartData, coupon.discount); // Cập nhật lại tổng tiền với giảm giá mới
     }
   };
 
@@ -143,11 +118,7 @@ const Cart = () => {
     setSearchText(e.target.value);
   };
 
-  const updateTotals = (
-    updatedCart,
-    discountValue = 0,
-    maxDiscountAmount = 0
-  ) => {
+  const updateTotals = (updatedCart, discountValue = 0) => {
     // Lọc ra các sản phẩm đã được chọn
     const selectedItems = updatedCart.filter((item) => item.checked);
 
@@ -176,16 +147,10 @@ const Cart = () => {
     const discountToApply = (discountValue / 100) * newTotal;
     // Giả sử vận chuyển là giao hàng tiêu chuẩn
     let shippingCost = shippingMethods[1].price;
-    if (discountToApply > maxDiscountAmount) {
-      const newGrandTotal = newTotal - maxDiscountAmount;
-      setGrandTotal(newGrandTotal > 0 ? newGrandTotal : 0);
-    } else {
-      const newGrandTotal = newTotal - discountToApply;
-      setGrandTotal(newGrandTotal > 0 ? newGrandTotal : 0);
-    }
-    // const newGrandTotal = newTotal - discountToApply;
-    // setGrandTotal(newGrandTotal > 0 ? newGrandTotal : 0);
+
     // Tính tổng tiền cuối cùng
+    const newGrandTotal = newTotal - discountToApply;
+    setGrandTotal(newGrandTotal > 0 ? newGrandTotal : 0);
   };
 
   // const updateTotals = (updatedCart, discount = 0) => {
@@ -612,6 +577,7 @@ const Cart = () => {
               xs={6}
               style={{ marginLeft: "20px", fontSize: "25px", color: "#0094ff" }}
             >
+              
               <span>
                 <Link to="/">
                   <strong>Shopee</strong>
