@@ -2,6 +2,8 @@ import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { Icon } from "@ant-design/icons";
 import { CheckCircleOutlined } from "@ant-design/icons";
+import { ArrowLeftOutlined
+} from "@ant-design/icons";
 import {
   message,
   Card,
@@ -183,6 +185,7 @@ const Cart = () => {
       const newGrandTotal = newTotal - discountToApply;
       setGrandTotal(newGrandTotal > 0 ? newGrandTotal : 0);
     }
+
     // const newGrandTotal = newTotal - discountToApply;
     // setGrandTotal(newGrandTotal > 0 ? newGrandTotal : 0);
     // Tính tổng tiền cuối cùng
@@ -278,17 +281,65 @@ const Cart = () => {
 
   // Xử lý xoá sản phẩm
   const handleDelete = (key) => {
-    const updatedCart = cartData.filter((item) => item.key !== key);
-    setCartData(updatedCart);
-    const allChecked = updatedCart.every((item) => item.checked);
-    setSelectAllChecked(allChecked);
-    updateTotals(updatedCart);
+    const updatedCart2 = cartData.filter((item) => item.key == key);
+    console.log(updatedCart2);
+    Modal.confirm({
+      title: `Xác nhận xoá `,
+      // content: 'Are you sure you want to delete this item?',
+      content: (
+        <div>
+          <p>
+            Bạn chắc chắn muốn xoá sản phẩm{" "}
+            <strong>{updatedCart2[0].name}</strong>
+          </p>
+          <pre></pre>
+        </div>
+      ),
+      width: 600,
+      onOk() {
+        const updatedCart = cartData.filter((item) => item.key !== key);
+        console.log(updatedCart);
+        setCartData(updatedCart);
+        const allChecked = updatedCart.every((item) => item.checked);
+        setSelectAllChecked(allChecked);
+        updateTotals(updatedCart);
+      },
+      onCancel() {
+        console.log("Cancel");
+      },
+    });
   };
   const handleDeleteALL = (key) => {
-    // const updatedCart = cartData.filter((item) => item.key !== key);
-    if (selectAllChecked) {
-      setCartData([]);
+    if (cartData.some((item) => item.checked == true)) {
+      Modal.confirm({
+        title: "Xác nhận xoá",
+        // content: 'Are you sure you want to delete this item?',
+        content: (
+          <div>
+            <p>
+              Xác nhận xoá{" "}
+              {cartData.filter((item) => item.checked == true).length} sản phẩm
+            </p>
+          </div>
+        ),
+        width: 600,
+        onOk() {
+          const updatedCart = cartData.filter((item) => item.checked !== true);
+          console.log(updatedCart);
+          setCartData(updatedCart);
+          updateTotals(updatedCart);
+        },
+        onCancel() {
+          console.log("Cancel");
+        },
+      });
     }
+
+    //if (selectAllChecked) {
+    //       setCartData([]);
+    // setGrandTotal(0);
+
+    //     }
     // const allChecked = updatedCart.every((item) => item.checked);
     // setSelectAllChecked(allChecked);
     // updateTotals(updatedCart);
@@ -342,7 +393,7 @@ const Cart = () => {
   // };
   const columns = [
     {
-      title: "Sản phẩm",
+      title: <strong> Sản phẩm</strong>,
       dataIndex: "name",
       key: "name",
       render: (text, record) => (
@@ -355,6 +406,7 @@ const Cart = () => {
               md={7}
               lg={6}
               xl={4}
+              xxl={3}
               style={{ marginTop: "30px", marginRight: "10px" }}
             >
               <Tag color={"red"}>Yêu thích</Tag>
@@ -375,6 +427,7 @@ const Cart = () => {
               md={11}
               lg={8}
               xl={7}
+              xxl={5}
               onClick={(e) => e.stopPropagation()}
             >
               <Image width={100} src={record.image} alt="Mô tả ảnh" />
@@ -465,9 +518,15 @@ const Cart = () => {
                 handlePopoverVisibleChange(record, !visiblePopover[record.key])
               }
             >
-              Phân loại hàng :<br></br>
+              <Button
+                type="default"
+                style={{ borderColor: "#52c41a", color: "#000" }}
+              >
+                Phân loại hàng
+              </Button>
+              <br></br>
             </Title>
-            <span className="hand-cursor">
+            <span style={{ marginLeft: 10 }} className="hand-cursor">
               {selectedColor[record.key]
                 ? selectedColor[record.key]
                 : record.slColor}
@@ -597,6 +656,10 @@ const Cart = () => {
   };
   return (
     <div style={{ padding: "20px" }}>
+      <Link to="/" style={{ fontSize: "30px" }}>
+      <ArrowLeftOutlined/>
+
+      </Link>
       <Row justify="center">
         <Col span={20}>
           <Row>
@@ -620,7 +683,13 @@ const Cart = () => {
               <span> | Giỏ hàng </span>
             </Col>
           </Row>
-
+          {cartData.length == 0 && (
+            <Table
+              style={{ marginTop: "50px" }}
+              columns={columns}
+              dataSource={[]}
+            />
+          )}
           {uniqueStores.map((store) => (
             <div key={store}>
               <Link to="/shop">
@@ -688,7 +757,11 @@ const Cart = () => {
                 fontSize: "20px",
                 marginRight: "10px",
               }}
-              checked={cartData.every((item) => item.checked) ? true : false}
+              checked={
+                cartData.length !== 0 && cartData.every((item) => item.checked)
+                  ? true
+                  : false
+              }
               onChange={handleSelectAllChange}
             >
               Chọn tất cả ({cartData.length})

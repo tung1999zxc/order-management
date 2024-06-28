@@ -1,70 +1,85 @@
-import React, { useState } from "react";
-import { Input, Button, message } from "antd";
+import React, { useState, useEffect } from "react";
+import { Link } from "react-router-dom";
+import axios from "axios";
+import {
+  message,
+  Card,
+  Popover,
+  Tooltip,
+  Modal,
+  Form,
+  Select,
+  Input,
+  Table,
+  Space,
+  Row,
+  Col,
+  Typography,
+  Button,
+  InputNumber,
+  Checkbox,
+  Tag,
+  Image,
+} from "antd";
 
-const DiscountCalculator = () => {
-  const [inputValue, setInputValue] = useState(""); // State để lưu mã giảm giá nhập vào
-  const [discountAmount, setDiscountAmount] = useState(0); // State để lưu số tiền giảm giá được tính toán
-  const [orderAmount, setOrderAmount] = useState(0); // State để lưu giá trị đơn hàng
+function TestAnt5() {
+  const [data, setData] = useState([]);
+  const [visibleModal, setVisibleModal] = useState(false);
+  useEffect(() => {
+    fetchData();
+  }, []);
 
-  // Hàm xử lý khi người dùng nhập mã giảm giá
-  const handleInputChange = (e) => {
-    setInputValue(e.target.value);
+  const fetchData = async () => {
+    try {
+      const response = await axios.get("/data.json");
+      setData(response.data);
+    } catch (error) {
+      console.error("There was an error fetching the orders!", error);
+    }
   };
-
-  // Hàm xử lý khi người dùng áp dụng mã giảm giá
-  const handleApplyDiscount = () => {
-    // Kiểm tra nếu không có giá trị đơn hàng, không thực hiện tính toán
-    if (orderAmount === 0) {
-      message.error(
-        "Vui lòng nhập giá trị đơn hàng trước khi áp dụng mã giảm giá!"
-      );
-      return;
+  // Function to add data
+  const addData = async (values) => {
+    const user = {
+      username: values.username,
+      password: values.password,
+    };
+    try {
+      const response = await axios.post("/api/data", user);
+      setData([...data, response.data]);
+    } catch (error) {
+      console.error("Error adding data:", error);
     }
-
-    // Tính toán số tiền giảm giá
-    let discountPercent = 10; // Phần trăm giảm giá
-    let maxDiscountAmount = 150000; // Giá trị tối đa giảm giá (150,000 VND)
-
-    let discountValue = orderAmount * (discountPercent / 100);
-
-    if (discountValue > maxDiscountAmount) {
-      discountValue = maxDiscountAmount;
+  };
+  const deleteData = async (id) => {
+    try {
+      await axios.delete(`/api/data/id`);
+      setData(data.filter((item) => item.id !== id));
+    } catch (error) {
+      console.error("Error deleting data:", error);
     }
-
-    // Cập nhật state để hiển thị số tiền giảm giá
-    setDiscountAmount(discountValue);
-
-    // Hiển thị thông báo thành công
-    message.success(
-      `Đã áp dụng mã giảm giá thành công! Số tiền giảm giá: ${discountValue} VND`
-    );
+  };
+  const updateData = async (id, updatedItem) => {
+    try {
+      const response = await axios.put(`/api/data/id`, updatedItem);
+      setData(data.map((item) => (item.id === id ? response.data : item)));
+    } catch (error) {
+      console.error("Error updating data:", error);
+    }
   };
 
   return (
     <div>
-      <Input
-        value={inputValue}
-        onChange={handleInputChange}
-        placeholder="Nhập mã giảm giá"
-      />
-      <Button type="primary" onClick={handleApplyDiscount}>
-        Áp dụng
-      </Button>
-      <div style={{ marginTop: "10px" }}>
-        <Input
-          type="number"
-          value={orderAmount}
-          onChange={(e) => setOrderAmount(parseInt(e.target.value) || 0)}
-          placeholder="Nhập giá trị đơn hàng"
-        />
-      </div>
-      <div>
-        <p style={{ marginTop: "10px" }}>
-          Số tiền giảm giá: {discountAmount} VND
-        </p>
-      </div>
+      <Modal
+        title="Mã giảm giá"
+        visible={visibleModal}
+        onOk={() => setVisibleModal(false)}
+        onCancel={() => setVisibleModal(false)}
+        footer={[]}
+      >
+        <div>nội dung modal</div>
+      </Modal>
     </div>
   );
-};
+}
 
-export default DiscountCalculator;
+export default TestAnt5;

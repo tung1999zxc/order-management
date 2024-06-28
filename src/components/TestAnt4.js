@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { Input, Button, message } from "antd";
+import { FrownFilled } from "@ant-design/icons";
 
 const DiscountCalculator = () => {
   const [inputValue, setInputValue] = useState(""); // State để lưu mã giảm giá nhập vào
@@ -26,6 +27,7 @@ const DiscountCalculator = () => {
     if (discountValue > maxDiscountAmount) {
       discountValue = maxDiscountAmount;
     }
+    
 
     // Cập nhật state để hiển thị số tiền giảm giá
     setDiscountAmount(discountValue);

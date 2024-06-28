@@ -261,11 +261,23 @@ body {
 }
 
 .ant-input-textarea-show-count::after {
-  content: 'Maximum length exceeded';
+  content: "Maximum length exceeded";
   color: red;
 }
 
 .site-layout-background {
   background: #fff;
   padding: 24px;
+}
+
+.green-outline-button {
+  border-color: #52c41a; /* Màu viền xanh */
+}
+
+.green-outline-button:hover {
+  color: #52c41a; /* Màu văn bản xanh khi hover */
+  border-color: #52c41a; /* Màu viền xanh khi hover */
+}
+
+.tHoverNo:hover {
 }

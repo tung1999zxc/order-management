@@ -11,6 +11,7 @@ import { Tag } from "antd";
 import axios from "axios";
 import { Steps, Descriptions, Card, Space, Row, Col, Statistic } from "antd";
 import { DollarOutlined } from "@ant-design/icons";
+import { ArrowLeftOutlined } from "@ant-design/icons";
 import "../App.css";
 import { Button } from "antd";
 import { Typography } from "antd";
@@ -141,8 +142,8 @@ const OrderDetail = () => {
     <div className="order-detail">
       <Row>
         <Col>
-          <Link to="/" className="nav-link">
-            TRỞ LẠI
+          <Link to="/" className="nav-link" style={{ fontSize: "30px" }}>
+            <ArrowLeftOutlined />
           </Link>
         </Col>
         <Col offset={15}>
@@ -268,7 +269,7 @@ const OrderDetail = () => {
           md={20}
           lg={8}
           xl={8}
-          // style={{ marginLeft: "-25px" }}
+          style={{ marginLeft: "-15px" }}
         >
           <Title level={4}>
             <Link style={{}}>{data.shop_name}</Link>
@@ -277,7 +278,7 @@ const OrderDetail = () => {
       </Row>
 
       <Row>
-        <Col xs={7} sm={4} md={2} lg={2} xl={2}>
+        <Col xs={7} sm={4} md={2} lg={2} xl={2} xxl={1}>
           <Image width={100} src={data.image} alt="Mô tả ảnh" />
         </Col>
 
@@ -287,7 +288,7 @@ const OrderDetail = () => {
           md={17}
           lg={6}
           xl={17}
-          style={{ marginTop: "-30px", marginLeft: "10px" }}
+          style={{ marginTop: "-30px", marginLeft: "20px" }}
         >
           <Title level={4}>{data.product_name}</Title>
           <p>Phân loại hàng : {data.category}</p>
@@ -305,7 +306,13 @@ const OrderDetail = () => {
         </Col>
       </Row>
 
-      <Table dataSource={dataSource} columns={columns} bordered />
+      <Table
+        dataSource={dataSource}
+        columns={columns}
+        bordered
+        className="tHoverNo"
+        pagination={false}
+      />
     </div>
   );
 };

@@ -157,7 +157,7 @@ const OrderManagement = () => {
         })}
         responsive={true}
       >
-        <Column width="10%" title="Mã đơn hàng" dataIndex="id" key="id" />
+        <Column width="8%" title="Mã đơn hàng" dataIndex="id" key="id" />
         {/* <Column title="Khách hàng" dataIndex="name" key="name" /> */}
 
         <Column
@@ -166,14 +166,24 @@ const OrderManagement = () => {
           render={(record) => (
             <div>
               <Row>
-                <Col xs={0} sm={12} md={7} lg={6} xl={3}>
+                <Col xs={12} sm={12} md={7} lg={6} xl={3} xxl={2}>
                   <Tag color={"red"} style={{ marginTop: "30px" }}>
                     Yêu thích
                   </Tag>
                 </Col>
-                <Col xs={0} sm={12} md={17} lg={18} xl={21} style={{}}>
+                <Col
+                  xs={12}
+                  sm={12}
+                  md={17}
+                  lg={18}
+                  xl={21}
+                  xxl={20}
+                  style={{}}
+                >
                   <Typography.Title level={4}>
-                    <Link style={{}}>{record.shop_name}</Link>
+                    <Link style={{ marginLeft: "5px" }} className="hand-cursor">
+                      {record.shop_name}
+                    </Link>
                   </Typography.Title>
                 </Col>
               </Row>
@@ -185,9 +195,10 @@ const OrderManagement = () => {
                   md={9}
                   lg={7}
                   xl={5}
+                  xxl={3}
                   onClick={(e) => e.stopPropagation()}
                 >
-                  <Image width={100} src={record.image} alt="Mô tả ảnh" />
+                  <Image width={90} src={record.image} alt="Mô tả ảnh" />
                 </Col>
 
                 <Col
@@ -339,8 +350,8 @@ const OrderManagement = () => {
       <div
         style={{
           position: "absolute ",
-          right: "200px",
-          top: "14px",
+          right: "500px",
+          top: "100px",
         }}
       >
         <Link to="/cart">
@@ -352,6 +363,7 @@ const OrderManagement = () => {
               }}
             />
           </Badge>
+          <span style={{ color: "#08c", fontSize: "25px" }}>Giỏ hàng </span>
         </Link>
       </div>
 

@@ -164,9 +164,9 @@ const OrderManagement = () => {
           render={(record) => (
             <div>
               <Row>
-                <Col xs={0} sm={12} md={7} lg={6} xl={3}>
+                <Col xs={0} sm={12} md={7} lg={6} xl={3} xxl={4}>
                   <Tag color={"red"} style={{ marginTop: "30px" }}>
-                    Yêu thích
+                    Yêu thíchh
                   </Tag>
                 </Col>
                 <Col xs={0} sm={12} md={17} lg={18} xl={21} style={{}}>
@@ -183,6 +183,7 @@ const OrderManagement = () => {
                   md={9}
                   lg={7}
                   xl={5}
+                  xxl={3}
                   onClick={(e) => e.stopPropagation()}
                 >
                   <Image width={100} src={record.image} alt="Mô tả ảnh" />
