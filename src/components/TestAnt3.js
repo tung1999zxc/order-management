@@ -67,7 +67,7 @@ const App = () => {
           {products.map((product) => (
             <Col key={product.id} xs={24} sm={12} md={8} lg={6}>
               <Card
-                hoverable
+                
                 cover={
                   <img
                     style={{ height: "300px" }}

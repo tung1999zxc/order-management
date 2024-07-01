@@ -2,8 +2,7 @@ import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { Icon } from "@ant-design/icons";
 import { CheckCircleOutlined } from "@ant-design/icons";
-import { ArrowLeftOutlined
-} from "@ant-design/icons";
+import { ArrowLeftOutlined } from "@ant-design/icons";
 import {
   message,
   Card,
@@ -587,14 +586,14 @@ const Cart = () => {
     },
     {
       title: "Thành tiền",
-      dataIndex: "subtotal",
+
       key: "subtotal",
       render: (text, record) => (
         <Space size="small" style={{ color: "red" }}>
           {new Intl.NumberFormat("vi-VN", {
             style: "currency",
             currency: "VND",
-          }).format(text)}
+          }).format(record.price * record.quantity)}
         </Space>
       ),
     },
@@ -657,8 +656,7 @@ const Cart = () => {
   return (
     <div style={{ padding: "20px" }}>
       <Link to="/" style={{ fontSize: "30px" }}>
-      <ArrowLeftOutlined/>
-
+        <ArrowLeftOutlined />
       </Link>
       <Row justify="center">
         <Col span={20}>

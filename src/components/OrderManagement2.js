@@ -346,26 +346,26 @@ const OrderManagement = () => {
   const ftShipped = orders.filter((order) => order.status === "Shipped");
   return (
     <div>
-      <h1>Đơn mua</h1>
-      <div
-        style={{
-          position: "absolute ",
-          right: "500px",
-          top: "100px",
-        }}
-      >
-        <Link to="/cart">
-          <Badge count={4}>
-            <ShoppingCartOutlined
-              style={{
-                fontSize: "35px",
-                color: "#08c",
-              }}
-            />
-          </Badge>
-          <span style={{ color: "#08c", fontSize: "25px" }}>Giỏ hàng </span>
-        </Link>
-      </div>
+      <Row>
+        <Col xs={12} sm={18} md={17} lg={17} xl={18} xxl={17}>
+          <h1>Đơn mua</h1>
+        </Col>
+        <Col xs={4} sm={6} md={4} lg={4} xl={3} xxl={3}>
+          <div>
+            <Link to="/cart">
+              <Badge count={4}>
+                <ShoppingCartOutlined
+                  style={{
+                    fontSize: "35px",
+                    color: "#08c",
+                  }}
+                />
+              </Badge>
+              <span style={{ color: "#08c", fontSize: "25px" }}>Giỏ hàng </span>
+            </Link>
+          </div>
+        </Col>
+      </Row>
 
       <Tabs defaultActiveKey="all">
         <TabPane
