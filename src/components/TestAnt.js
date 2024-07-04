@@ -357,12 +357,13 @@ const Cart = () => {
   };
 
   // Hàm để xử lý khi chọn màu sắc của sản phẩm
-  const handleColorSelect = (record, color) => {
-    setSelectedColor((prevState) => ({
-      ...prevState,
-      [record.key]: color,
-    }));
-  };
+    const handleColorSelect = (record, color) => {
+      setSelectedColor((prevState) => ({
+        ...prevState,
+        [record.key]: color,
+      }));
+      console.log(selectedColor);
+    };
 
   // Hàm để xử lý khi chọn kích thước của sản phẩm
   const handleSizeSelect = (record, size) => {

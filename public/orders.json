@@ -23,7 +23,7 @@
     "store": "Cửa hàng giày NIKE"
   },
   {"shop_name": "Cửa hàng giày NIKE",
-  "key": "5",
+  "key": "2",
   "id": "PROD004",
   "name": "Aó polo nam mùa hè",
   "quantity": 1,
@@ -39,7 +39,7 @@
   "store": "Cửa hàng giày NIKE"
 },
   {"shop_name": "Cửa hàng giày NIKE",
-    "key": "4",
+    "key": "3",
     "id": "PROD004",
     "name": "Giày thể thao đá bóng",
     "quantity": 1,
@@ -56,7 +56,7 @@
   },
 
   {"shop_name": "Cửa hàng túi sách Ngọc Oanh",
-    "key": "2",
+    "key": "4",
     "id": "PROD002",
     "name": "Túi xách nữ DIOR",
     "quantity": 2,
@@ -71,7 +71,7 @@
     "store": "Cửa hàng túi sách Ngọc Oanh"
   },
   {"shop_name": "Cửa hàng áo thun Quảng Châu",
-    "key": "3",
+    "key": "5",
     "id": "PROD003",
     "name": "Aó Khoác gió nữ",
     "quantity": 5,

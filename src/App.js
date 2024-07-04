@@ -14,6 +14,7 @@ import TestAnt4 from "./components/TestAnt4.js";
 import TestAnt5 from "./components/TestAnt5.js";
 import TestAnt6 from "./components/TestAnt6.js";
 import OderBuy from "./components/OderBuy.js";
+import Cart from "./components/cart/Cart.js";
 
 const { Header, Content, Footer, Sider } = Layout;
 
@@ -59,6 +60,7 @@ function App() {
               <Route path="/1" element={<OrderManagement />} />
               <Route path="/" element={<OrderManagement2 />} />
               <Route path="/cart" element={<TestAnt />} />
+              <Route path="/cart2" element={<Cart />} />
               <Route path="/product" element={<Product />} />
               <Route path="/oderBuy" element={<OderBuy />} />
               <Route path="/4" element={<TestAnt4 />} />
